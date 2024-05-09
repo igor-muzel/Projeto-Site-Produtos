@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+
+*{
+    font: 1em;
+    color: rgba(0, 0, 0, 0.815);
+    margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    background-color: rgb(3, 3, 43);
+    margin-top: 20vh;
+}
+
+form {
+    margin: auto;
+    width: 400px;
+    padding: 1.4em;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+    background-color: white;
+    box-shadow: 10px 10px 55px rgba(129, 78, 0, 0.815);
+}
+
+form h1{
+    text-align: center;
+    font-size: larger;
+    padding-bottom: 0.5em;
+}
+
+#instrucao {
+    font-size: smaller;
+    margin-bottom: 15px;
+    color: #5a5a5a;
+    padding: .5px;
+}
+
+hr{
+    margin-bottom: 10px;
+}
+
+form div + div {
+    margin-top: 1em;
+}
+
+label#nomeLabel, label#emailLabel, label#assuntoLabel{
+    display: block;
+}
+
+label {
+    display: block;
+    text-align: left;
+    position: relative;
+    top: 2px;
+    font-size: .9em;
+    font-weight: 600;
+}
+
+input {
+    font: 1em sans-serif;
+    width: 100%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #999;
+    border-radius: 0.2em;
+    padding: 3px 10px;
+    margin-top: 3px;
+}
+
+input:hover {
+    border-color: #4885e0;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+ }
+
+
+.button {
+    display: flex;
+    justify-content: flex-end;
+    font-weight: bold;
+}
+
+.button > p {
+    margin-right: 10px;
+    border-bottom: 2px solid #999999;
+    border-right: 2px solid #999999;
+    background-color: #b1b1b1;
+    padding: 4px 10px;
+    border-radius: 0.2em;
+    font-size: .9em;
+}
+
+.button > p:active{
+    border-top: 2px solid #999999;
+    border-left: 2px solid #999999;
+    border-bottom: none;
+    border-right: none;
+    padding: 2px 12px 2px 8px;
+}
+
+#enviar {
+    border-color: #4885e0;
+    background-color: #4885e0;
+    padding: 3px 10px;
+    border-radius: 0.2em;
+    color: white;
+    font-size: .9em;
+    font-weight: bold;
+}
+
+button:hover{
+    border-color: #2d5591;
+}
+
+::placeholder{
+    font-size: 0.8em;
+}

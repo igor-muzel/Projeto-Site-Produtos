@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Cadastro</title>
 </head>
 <body>
-    <h1>Realize seu cadastro</h1>
     <form>
+        <h1>Realize seu cadastro</h1><hr>
         <div id="nome">
             <label for="nome" id="nomeLabel">Seu nome</label>
             <input type="text" id="nome" name="nome" placeholder="Nome e sobrenome">
@@ -20,12 +21,16 @@
             <label for="senha" id="senhaLabel">Senha</label>
             <input type="password" id="senha" name="senha" placeholder="Digite uma senha">
         </div>
+
+        <p id="instrucao">A senha deve ter pelo menos 6 caracteres</p>
+
         <div id="confirmaSenha">
             <label for="confirmaSenha" id="confSenhalabel">Insira a senha nova mais uma vez</label>
-            <input type="password" id="confSenha" name="confsenha" placeholder="Pelo menos 6 caracteres"></textarea>
+            <input type="password" id="confSenha" name="confsenha" placeholder=""></textarea>
         </div>
         <div class="button">
-            <button type="submit" id="enviar">Enviar</button>
+            <p>Voltar</p>
+            <button type="submit" id="enviar">Cadastrar</button>
         </div>
     </form>
 </body>
