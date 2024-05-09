@@ -12,18 +12,25 @@ document.addEventListener("DOMContentLoaded", function () {
         var email = document.getElementById("emailInput").value;
         var senha = document.getElementById("senhaInput").value;
         var confirmaSenha = document.getElementById("confSenhaInput").value;
-
-        if (nomeCompleto.trim().indexOf(' ') === -1) {
-            return 2; // Não inseriu o sobrenome
+    
+        // Verifica se algum campo está em branco
+        var camposVazios = [nomeCompleto, email, senha, confirmaSenha].some(function(campo) {
+            return campo.trim() === "";
+        });
+    
+        if (camposVazios) {
+            return false; // Campos em branco
         }
-
+    
+        if (nomeCompleto.trim().indexOf(' ') === -1) {
+            return 3; // Não inseriu o sobrenome
+        }
+    
         var partesNome = nomeCompleto.split(' ');
         var nome = partesNome[0];
         var sobrenome = partesNome.slice(1).join(' ');
-
-        if (nome === "" || email === "" || senha === "" || confirmaSenha === "") {
-            return false; // Campos em branco
-        } else if (senha.length < 6) {
+    
+        if (senha.length < 6) {
             return 1; // Senha muito curta
         } else if (confirmaSenha !== senha) {
             return 0; // Senhas não coincidem
@@ -31,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return true; // Formulário válido
         }
     }
+    
 
     document.querySelector("form").addEventListener("submit", function (event) {
         event.preventDefault();
@@ -38,13 +46,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (validacao === true) {
             alert("Formulário válido. Enviando...");
             limparCampos();
+            return false;
         } else if (validacao === false) {
             alert("Por favor, preencha todos os campos do formulário corretamente!");
         } else if (validacao === 0) {
             alert("As senhas não combinam, favor insira a senha utilizada para confirmação");
         } else if (validacao === 1) {
             alert("A senha deve conter pelo menos 6 caracteres.");
-        } else if (validacao === 2) {
+        } else if (validacao === 3) {
             alert("É necessário inserir sobrenome.")
         }
     });
