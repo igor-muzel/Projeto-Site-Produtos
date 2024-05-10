@@ -16,7 +16,12 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             document.getElementById("loginMessage").textContent = "Email ou senha incorretos. Tente novamente.";
             // Redirecionar para a página de cadastro
-            window.location.href = "C:\Users\Usuario\Documents\GitHub\Projeto-Site-Produtos\pages\cadastro_usuario\index.html";
+            window.location.href = "index.html";
         }
+     
     });
+    
+    document.getElementById("cadastro").onclick = function() {
+        window.location.href = "index.html";
+    };   
 });
