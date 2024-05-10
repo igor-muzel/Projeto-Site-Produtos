@@ -1,5 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
-    
+
+    // Recuperar os usuários armazenados no localStorage ou inicializar um array vazio
+    const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+    function verificaCadastros(usuarioVerificando) {
+        return usuarios.includes(usuarioVerificando);
+    }
+
+    function armazenaCadastros(novoUsuario) {
+        if (verificaCadastros(novoUsuario)) {
+            alert("Os dados informados correspondem a um usuário cadastrado.");
+        } else {
+            usuarios.push(novoUsuario);
+            // Atualizar os dados no localStorage
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+        }
+    }
+
     function limparCampos() {
         document.getElementById("nomeInput").value = "";
         document.getElementById("emailInput").value = "";
@@ -7,11 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("confSenhaInput").value = "";
     }
     
-    function validaFormulario() {
-        var nomeCompleto = document.getElementById("nomeInput").value;
-        var email = document.getElementById("emailInput").value;
-        var senha = document.getElementById("senhaInput").value;
-        var confirmaSenha = document.getElementById("confSenhaInput").value;
+    function validaFormulario(nomeCompleto, email, senha, confirmaSenha) {
     
         // Verifica se algum campo está em branco
         var camposVazios = [nomeCompleto, email, senha, confirmaSenha].some(function(campo) {
@@ -38,15 +51,19 @@ document.addEventListener("DOMContentLoaded", function () {
             return true; // Formulário válido
         }
     }
-    
 
     document.querySelector("form").addEventListener("submit", function (event) {
         event.preventDefault();
-        var validacao = validaFormulario();
+        var nome = document.getElementById("nomeInput").value;
+        var email = document.getElementById("emailInput").value;
+        var senha = document.getElementById("senhaInput").value;
+        var confSenha = document.getElementById("confSenhaInput").value;
+
+        var validacao = validaFormulario(nome, email, senha, confSenha);
         if (validacao === true) {
             alert("Formulário válido. Enviando...");
             limparCampos();
-            return false;
+            armazenaCadastros(email); // Aqui estou usando o email como identificador único, você pode ajustar conforme necessário
         } else if (validacao === false) {
             alert("Por favor, preencha todos os campos do formulário corretamente!");
         } else if (validacao === 0) {
@@ -58,5 +75,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-
