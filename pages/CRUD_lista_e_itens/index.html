@@ -3,3 +3,46 @@ o usuário irá criar listas de compras e tudo mais. Além disso, a página deve
 com a página de login, caso o usuário queira sair da sua conta -->
 
 <!-- Felipe e Igor a parte de CRUD de itens da lista provavelmente também será na página principal-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <title>Lista de Compras de Carros</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Compras de Carros</h1>
+        
+        <div class="form-container">
+            <h2>Adicionar Carro à Lista</h2>
+            <form id="car-form">
+                <label for="marca">Marca:</label>
+                <input type="text" id="marca" name="marca" required>
+
+                <label for="modelo">Modelo:</label>
+                <input type="text" id="modelo" name="modelo" required>
+
+                <label for="ano">Ano:</label>
+                <input type="number" id="ano" name="ano" min="1900" max="2099" step="1" required>
+
+                <label for="preco">Preço:</label>
+                <input type="number" id="preco" name="preco" required>
+
+                <button type="submit">Adicionar Carro</button>
+            </form>
+        </div>
+
+        <div class="car-list">
+            <h2>Lista de Carros adicionado na lista:</h2>
+            <ul id="carros">
+                
+            </ul>
+        </div>
+    </div>
+
+    <script src="main.js" defer></script>
+</body>
+</html>
